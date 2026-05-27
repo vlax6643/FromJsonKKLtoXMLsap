@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environment
+.venv/
+
+# IDE
+.idea/
+
+# Runtime data — создаются автоматически при работе конвертера
+inbox/
+outbox/
+processed/
+logs/
+
+# SQLite journal — runtime state
+journal.db
