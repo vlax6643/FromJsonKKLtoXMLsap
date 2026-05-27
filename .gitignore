@@ -17,3 +17,7 @@ logs/
 
 # SQLite journal — runtime state
 journal.db
+
+# PyInstaller build artifacts
+build/
+*.spec

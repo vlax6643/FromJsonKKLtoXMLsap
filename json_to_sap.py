@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-converter.py — Конвертер ККЛ JSON Домино → IDoc WPUBON01 XML SAP
+json_to_sap.py — Конвертер ККЛ JSON Домино -> IDoc WPUBON01 XML SAP
 Читает KKL JSON из inbox/, создаёт WPUBON01 XML в outbox/.
 
-Запуск: python converter.py
+Запуск: python json_to_sap.py
 """
 
 import io
@@ -24,7 +24,7 @@ import configparser
 # Таблицы кодов
 # ---------------------------------------------------------------------------
 
-# vat из ккл (строка) → MWSKZ SAP
+# vat из ккл (строка) -> MWSKZ SAP
 VAT_MWSKZ = {
     '0':  'B0',
     '10': 'B1',
@@ -439,7 +439,7 @@ def write_journal(conn, kkl_filename, status,
 
 def load_config(config_path):
     """
-    Читает config.ini, возвращает (paths_dict, sap_dict).
+    Читает json_to_sap, возвращает (paths_dict, sap_dict).
     Пути могут быть абсолютными или относительными от папки скрипта.
     """
     base = os.path.dirname(os.path.abspath(config_path))
@@ -662,7 +662,7 @@ def cleanup_processed(processed_path, retention_days, logger):
 
 def main():
     base_dir    = os.path.dirname(os.path.abspath(__file__))
-    config_path = os.path.join(base_dir, 'config.ini')
+    config_path = os.path.join(base_dir, 'json_to_sap.ini')
 
     paths, sap_cfg = load_config(config_path)
     logger = setup_logging(paths['log'])
